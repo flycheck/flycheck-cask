@@ -5,7 +5,7 @@
 ;; Author: Sebastian Wiesner <lunaryorn@gmail.com>
 ;; URL: https://github.com/flycheck/flycheck-cask
 ;; Keywords: tools, convenience
-;; Version: 0.1
+;; Version: 0.2-cvs
 ;; Package-Requires: ((flycheck "0.14") (dash "2.0.0") (f "0.6.0"))
 
 ;; This file is not part of GNU Emacs.
