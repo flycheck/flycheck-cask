@@ -35,6 +35,11 @@ Usage
 
 Just use Flycheck as usual in Cask projects.
 
+Customization
+-------------
+
+- `M-x customize-group RET flycheck-cask`
+
 License
 -------
 
