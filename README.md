@@ -3,6 +3,11 @@ flycheck-cask
 
 Make Flycheck use Cask packages in Cask projects.
 
+A *Cask project* is denoted by the existence of a `Cask` file at the top of the
+source code tree.  For Emacs Lisp files in such projects, this extension enables
+`flycheck-emacs-lisp-initialize-packages` and set
+`flycheck-emacs-lisp-package-user-dir` so that Flycheck picks up the
+dependencies of the project when checking Emacs Lisp files.
 
 Installation
 ------------
