@@ -1,7 +1,7 @@
 flycheck-cask
 =============
 
-Make Flycheck use Cask packages in Cask projects.
+Make Flycheck use Cask packages in [Cask][] projects.
 
 A *Cask project* is denoted by the existence of a `Cask` file at the top of the
 source code tree.  For Emacs Lisp files in such projects, this extension enables
@@ -15,7 +15,7 @@ Installation
 As usual, from [MELPA](http://melpa.milkbox.net) and
 [Marmalade](http://marmalade-repo.org/).
 
-In your [`Cask`](https://github.com/rejeep/cask.el) file:
+In your [`Cask`][cask] file:
 
 ```lisp
 (source melpa)
@@ -57,3 +57,5 @@ this program.  If not, see http://www.gnu.org/licenses/.
 
 See [COPYING](https://github.com/flycheck/flycheck-cask/blob/master/COPYING) for
 details.
+
+[cask]: https://github.com/cask/cask
