@@ -18,6 +18,7 @@ As usual, from [MELPA](http://melpa.milkbox.net) and
 In your [`Cask`][cask] file:
 
 ```lisp
+(source gnu)
 (source melpa)
 
 (depends-on "flycheck-cask")
