@@ -4,7 +4,7 @@
 
 .. default-role:: code
 
-Make Flycheck use Cask packages in Cask_ projects.
+Make Flycheck_ use Cask packages in Cask_ projects.
 
 A *Cask project* is denoted by the existence of a `Cask` file at the top of the
 source code tree.  For Emacs Lisp files in such projects, this extension enables
@@ -60,6 +60,7 @@ this program.  If not, see http://www.gnu.org/licenses/.
 
 See COPYING_ for details.
 
+.. _Flycheck: https://github.com/flycheck/flycheck
 .. _Cask: https://github.com/cask/cask
 .. _MELPA: http://melpa.milkbox.net
 .. _Marmalade: http://marmalade-repo.org/
