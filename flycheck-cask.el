@@ -78,4 +78,9 @@ Set `flycheck-emacs-lisp-initialize-packages' and
 
 (provide 'flycheck-cask)
 
+;; Local Variables:
+;; coding: utf-8
+;; indent-tabs-mode: nil
+;; End:
+
 ;;; flycheck-cask.el ends here
