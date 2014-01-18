@@ -37,6 +37,7 @@
 
 (require 'flycheck)
 (require 'dash)
+(require 'f)
 
 (defgroup flycheck-cask nil
   "Cask support for Flycheck."
