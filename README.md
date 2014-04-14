@@ -1,10 +1,7 @@
-===============
- flycheck-cask
-===============
+flycheck-cask — Support Cask projects in Flycheck
+=================================================
 
-.. default-role:: code
-
-Make Flycheck_ use Cask packages in Cask_ projects.
+Make [Flycheck][] use [Cask][] packages in [Cask][] projects.
 
 A *Cask project* is denoted by the existence of a `Cask` file at the top of the
 source code tree.  For Emacs Lisp files in such projects, this extension enables
@@ -13,38 +10,38 @@ source code tree.  For Emacs Lisp files in such projects, this extension enables
 dependencies of the project when checking Emacs Lisp files.
 
 Installation
-============
+------------
 
-As usual, from MELPA_ and Marmalade_.
+As usual, from [MELPA][] and [Marmalade][].
 
-In your Cask_ file:
+In your [`Cask`][cask] file:
 
-.. code-block:: cl
+```cl
+(source gnu)
+(source melpa)
 
-   (source gnu)
-   (source melpa)
-
-   (depends-on "flycheck-cask")
+(depends-on "flycheck-cask")
+```
 
 In your `init.el`:
 
-.. code-block:: cl
-
-   (eval-after-load 'flycheck
-     '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+```cl
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-cask-setup))
+```
 
 Usage
-=====
+-----
 
 Just use Flycheck as usual in Cask projects.
 
 Customization
-=============
+-------------
 
-- `M-x customize-group RET flycheck-cask`
+- <kbd>M-x customize-group RET flycheck-cask</kbd>
 
 License
-=======
+-------
 
 This program is free software: you can redistribute it and/or modify it under
 the terms of the GNU General Public License as published by the Free Software
@@ -58,10 +55,10 @@ PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 You should have received a copy of the GNU General Public License along with
 this program.  If not, see http://www.gnu.org/licenses/.
 
-See COPYING_ for details.
+See [`COPYING`][copying] for details.
 
-.. _Flycheck: https://github.com/flycheck/flycheck
-.. _Cask: https://github.com/cask/cask
-.. _MELPA: http://melpa.milkbox.net
-.. _Marmalade: http://marmalade-repo.org/
-.. _COPYING: https://github.com/flycheck/flycheck-cask/blob/master/COPYING
+[Flycheck]: https://github.com/flycheck/flycheck
+[Cask]: https://github.com/cask/cask
+[MELPA]: http://melpa.milkbox.net
+[Marmalade]: http://marmalade-repo.org/
+[COPYING]: https://github.com/flycheck/flycheck-cask/blob/master/COPYING
