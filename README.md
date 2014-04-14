@@ -1,5 +1,5 @@
-flycheck-cask — Support Cask projects in Flycheck
-=================================================
+flycheck-cask
+=============
 
 Make [Flycheck][] use [Cask][] packages in [Cask][] projects.
 
