@@ -1,8 +1,8 @@
 ;;; flycheck-cask.el --- Cask support in Flycheck -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2014  Sebastian Wiesner
+;; Copyright (C) 2013, 2014  Sebastian Wiesner <swiesner@lunaryorn.com>
 
-;; Author: Sebastian Wiesner <lunaryorn@gmail.com>
+;; Author: Sebastian Wiesner <swiesner@lunaryorn.com>
 ;; URL: https://github.com/flycheck/flycheck-cask
 ;; Keywords: tools, convenience
 ;; Version: 0.2-cvs
