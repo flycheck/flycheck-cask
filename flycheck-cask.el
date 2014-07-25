@@ -6,7 +6,7 @@
 ;; URL: https://github.com/flycheck/flycheck-cask
 ;; Keywords: tools, convenience
 ;; Version: 0.2-cvs
-;; Package-Requires: ((flycheck "0.14") (dash "2.4.0") (f "0.11.0"))
+;; Package-Requires: ((flycheck "0.14") (dash "2.4.0"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -37,7 +37,6 @@
 
 (require 'flycheck)
 (require 'dash)
-(require 'f)
 
 (defgroup flycheck-cask nil
   "Cask support for Flycheck."
@@ -55,7 +54,7 @@ project to `flycheck-emacs-lisp-load-path'."
 
 (defun flycheck-cask-package-dir (root-dir)
   "Get the package directory for ROOT-DIR."
-  (f-join root-dir (format ".cask/%s/elpa" emacs-version)))
+  (expand-file-name (format ".cask/%s/elpa" emacs-version) root-dir))
 
 ;;;###autoload
 (defun flycheck-cask-setup ()
