@@ -69,15 +69,15 @@ Set `flycheck-emacs-lisp-initialize-packages' and
 `flycheck-emacs-lisp-package-user-dir' accordingly."
   (when (buffer-file-name)
     (-when-let (root-dir (locate-dominating-file (buffer-file-name) "Cask"))
-      (setq flycheck-emacs-lisp-initialize-packages t
-            flycheck-emacs-lisp-package-user-dir
-            (flycheck-cask-package-dir root-dir))
+      (setq-local flycheck-emacs-lisp-initialize-packages t)
+      (setq-local flycheck-emacs-lisp-package-user-dir
+                  (flycheck-cask-package-dir root-dir))
       (when (eq flycheck-emacs-lisp-load-path 'inherit)
         ;; Disable `load-path' inheritance if enabled.
-        (setq flycheck-emacs-lisp-load-path nil))
+        (setq-local flycheck-emacs-lisp-load-path nil))
       (when flycheck-cask-add-root-directory
-        (add-to-list 'flycheck-emacs-lisp-load-path
-                     root-dir)))))
+        (setq-local flycheck-emacs-lisp-load-path
+                    (cons root-dir flycheck-emacs-lisp-load-path))))))
 
 (provide 'flycheck-cask)
 
