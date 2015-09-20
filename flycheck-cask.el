@@ -1,6 +1,6 @@
 ;;; flycheck-cask.el --- Cask support in Flycheck -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2013, 2014  Sebastian Wiesner <swiesner@lunaryorn.com>
+;; Copyright (C) 2013-2015  Sebastian Wiesner <swiesner@lunaryorn.com>
 
 ;; Author: Sebastian Wiesner <swiesner@lunaryorn.com>
 ;; URL: https://github.com/flycheck/flycheck-cask
@@ -52,9 +52,27 @@ project to `flycheck-emacs-lisp-load-path'."
   :group 'flycheck-cask
   :type 'boolean)
 
+(defcustom flycheck-cask-fall-back-to-package-user-dir nil
+  "When non-nil, fall back to `package-user-dir'.
+
+When non-nil, fall back to packages from `package-user-dir' for
+non-Cask projects.")
+
 (defun flycheck-cask-package-dir (root-dir)
   "Get the package directory for ROOT-DIR."
   (expand-file-name (format ".cask/%s/elpa" emacs-version) root-dir))
+
+(defun flycheck-cask-initialize-cask-dir (directory)
+  "Initialise Flycheck for the given Cask DIRECTORY."
+  (setq-local flycheck-emacs-lisp-initialize-packages t)
+  (setq-local flycheck-emacs-lisp-package-user-dir
+              (flycheck-cask-package-dir directory))
+  (when (eq flycheck-emacs-lisp-load-path 'inherit)
+    ;; Disable `load-path' inheritance if enabled.
+    (setq-local flycheck-emacs-lisp-load-path nil))
+  (when flycheck-cask-add-root-directory
+    (setq-local flycheck-emacs-lisp-load-path
+                (cons directory flycheck-emacs-lisp-load-path))))
 
 ;;;###autoload
 (defun flycheck-cask-setup ()
@@ -68,16 +86,11 @@ syntax checking.
 Set `flycheck-emacs-lisp-initialize-packages' and
 `flycheck-emacs-lisp-package-user-dir' accordingly."
   (when (buffer-file-name)
-    (-when-let (root-dir (locate-dominating-file (buffer-file-name) "Cask"))
-      (setq-local flycheck-emacs-lisp-initialize-packages t)
-      (setq-local flycheck-emacs-lisp-package-user-dir
-                  (flycheck-cask-package-dir root-dir))
-      (when (eq flycheck-emacs-lisp-load-path 'inherit)
-        ;; Disable `load-path' inheritance if enabled.
-        (setq-local flycheck-emacs-lisp-load-path nil))
-      (when flycheck-cask-add-root-directory
-        (setq-local flycheck-emacs-lisp-load-path
-                    (cons root-dir flycheck-emacs-lisp-load-path))))))
+    (-if-let (root-dir (locate-dominating-file (buffer-file-name) "Cask"))
+        (flycheck-cask-initialize-cask-dir root-dir)
+      (when flycheck-cask-fall-back-to-package-user-dir
+        (setq-local flycheck-emacs-lisp-initialize-packages t)
+        (setq-local flycheck-emacs-lisp-package-user-dir package-user-dir)))))
 
 (provide 'flycheck-cask)
 
