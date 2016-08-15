@@ -60,7 +60,10 @@ non-Cask projects.")
 
 (defun flycheck-cask-package-dir (root-dir)
   "Get the package directory for ROOT-DIR."
-  (expand-file-name (format ".cask/%s/elpa" emacs-version) root-dir))
+  (expand-file-name (format ".cask/%s.%s/elpa"
+                            emacs-major-version
+                            emacs-minor-version)
+                    root-dir))
 
 (defun flycheck-cask-initialize-cask-dir (directory)
   "Initialise Flycheck for the given Cask DIRECTORY."
