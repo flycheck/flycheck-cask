@@ -6,7 +6,7 @@
 ;; URL: https://github.com/flycheck/flycheck-cask
 ;; Keywords: tools, convenience
 ;; Version: 0.5-cvs
-;; Package-Requires: ((emacs "24.3") (flycheck "0.14") (dash "2.4.0"))
+;; Package-Requires: ((emacs "24.1") (flycheck "0.14") (dash "2.4.0"))
 
 ;; This file is not part of GNU Emacs.
 
@@ -57,6 +57,14 @@ project to `flycheck-emacs-lisp-load-path'."
 
 When non-nil, fall back to packages from `package-user-dir' for
 non-Cask projects.")
+
+(eval-and-compile
+  (unless (fboundp 'setq-local)
+    (defmacro setq-local (var val)
+      "Set variable VAR to value VAL in current buffer."
+      ;; Can't use backquote here, it's too early in the bootstrap.
+      (declare (debug (symbolp form)))
+      (list 'set (list 'make-local-variable (list 'quote var)) val))))
 
 (defun flycheck-cask-package-dir (root-dir)
   "Get the package directory for ROOT-DIR."
