@@ -37,6 +37,7 @@
 
 (require 'flycheck)
 (require 'dash)
+(require 'package)
 
 (defgroup flycheck-cask nil
   "Cask support for Flycheck."
@@ -56,7 +57,9 @@ project to `flycheck-emacs-lisp-load-path'."
   "When non-nil, fall back to `package-user-dir'.
 
 When non-nil, fall back to packages from `package-user-dir' for
-non-Cask projects.")
+non-Cask projects."
+  :group 'flycheck-cask
+  :type 'directory)
 
 (defun flycheck-cask-package-dir (root-dir)
   "Get the package directory for ROOT-DIR."
