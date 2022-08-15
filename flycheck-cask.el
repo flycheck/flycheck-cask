@@ -77,8 +77,8 @@ non-Cask projects."
     ;; Disable `load-path' inheritance if enabled.
     (setq-local flycheck-emacs-lisp-load-path nil))
   (when flycheck-cask-add-root-directory
-    (setq-local flycheck-emacs-lisp-load-path
-                (cons directory flycheck-emacs-lisp-load-path))))
+    (make-local-variable 'flycheck-emacs-lisp-load-path)
+    (add-to-list 'flycheck-emacs-lisp-load-path directory)))
 
 ;;;###autoload
 (defun flycheck-cask-setup ()
