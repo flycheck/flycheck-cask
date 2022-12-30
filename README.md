@@ -1,3 +1,7 @@
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-green.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![MELPA](https://melpa.org/packages/flycheck-cask-badge.svg)](https://melpa.org/#/flycheck-cask)
+[![MELPA Stable](https://stable.melpa.org/packages/flycheck-cask-badge.svg)](https://stable.melpa.org/#/flycheck-cask)
+
 flycheck-cask
 =============
 
