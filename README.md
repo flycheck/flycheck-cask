@@ -1,3 +1,5 @@
+**DEPRECATION NOTICE:** This project has been superseded by [flycheck-eask](https://github.com/flycheck/flycheck-eask).
+
 flycheck-cask
 =============
 
